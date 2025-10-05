@@ -12,7 +12,9 @@
      ```cpp
      {a + rand() % (b-a+1)}
 
-2. **srand( )** - used to change seed in rand( ) with current time as the dynamic seed
+2. **srand( )** - used to change seed in rand( ) -> <mark> preferred to use current time as dynamic seed </mark>
+   - srand( ) is called only once at the beginning of program
+   - If we don't call srand( ) before rand( ) -> same as calling srand(1) automatically
      ```cpp
      srand(time(0))
      
@@ -26,10 +28,14 @@
        mt19937 rng((uint32_t)chrono::steady_clock::now().time_since_epoch().count());
        ```
        - declared an instance of mt19937 named rng
-       - chrono::steady_clock::now() --> Returns current time
-       - time_since_epoch() --> Returns time elapsed since the epoch (January 1, 1970)
-       - count() --> Converts duration into count of number of clock ticks since the epoch
+          > Similar to creating instace of vector named ```arr```
+           ```cpp
+              vector<int> arr(100, -1)
+       - chrono::steady_clock::now( ) --> Returns current time
+       - time_since_epoch( ) --> Returns time elapsed since the epoch (January 1, 1970)
+       - count( ) --> Converts duration into count of number of clock ticks since the epoch
        - (uint32_t) --> typecast result to unsigned 32-bit integer, which is used as seed for mt19937
+       - **NOTE - time(0) provides low-resolution time (in seconds) because based on system's wall clock. But ```chrono library``` provides high-resolution time (in nanoseconds)**
         <br>
         
      - ```cpp
