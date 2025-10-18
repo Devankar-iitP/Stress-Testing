@@ -1,5 +1,7 @@
+******************************** Uploading Useful Batch Files ****************************************
 ### stress.bat -> batch file for stress testing
-### hacker.bat -> bathch file for Hacker Cup (Take I/P and cpp file -> gives O/P)
+### hacker.bat -> batch file for Hacker Cup (Take I/P and cpp file -> gives O/P)
+*************************************************************************************
 
 # Stress-Testing
 
