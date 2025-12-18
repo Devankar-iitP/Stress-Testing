@@ -50,3 +50,14 @@
        - long long int parameter specifies the type that distribution will produce --> further narrowed down to range `[70, MOD - 1]`
        - Uniform Distribution ensures that each integer in the range has equal probability of being selected --> NO bias
        - rng is used to generate random number that is then mapped to the specified range by distribution
+         
+## Other relevant libraries or functions
+1. time( ) - returns the number of seconds that have passed since the Unix Epoch (00:00:00 UTC, January 1, 1970)
+   - requires exactly one argument -> cannot call without any parameter -> time( ) ❌
+      - time(ptr) where ptr is pointer to a time_t variable to store the result
+      - time(nullptr) = time(NULL) = time(0) ✅ -> only returns value; don't store it in any extra variable
+           - NULL is a macro (usually defined as 0) -> less type-safe than nullptr bcz can be confused as integer
+           - In C and older C++, the integer 0 is allowed to act as null pointer -> time(0) = time(nullptr)
+           - Best pratice --> use nullptr
+   - returns a value of type time_t --> since time is measured in whole seconds -> using double will be unnecessary + precision errors
+      - Hence, time_t is int type --> all modern C++ compilers use 64-bit integer
